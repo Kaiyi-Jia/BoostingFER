@@ -45,3 +45,21 @@ Sota-weight and val code of "Boosting Representation Learning for High-Level Sem
 ├── 1/
 ├── ...
 └── 6/ (7 分类) 或 7/ (8 分类)
+### 3. 运行评估
+
+#### 测试七分类权重
+python evaluate.py --weights sota_affect7.pth --test_root D:/val --num_classes 7
+#### 测试八分类权重
+python evaluate.py --weights sota_affect8.pth --test_root D:/val --num_classes 8
+#### 导出结果到 CSV 
+python evaluate.py --weights sota_affect7.pth sota_affect8.pth \
+    --test_root D:/val --num_classes 7 --output results.csv
+#### 命令行参数
+#### 参数	类型	说明	默认值
+--weights	多路径	必须，一个或多个权重文件路径	-
+--test_root	路径	必须，测试集根目录	-
+--num_classes	7 或 8	分类数	8
+--batch_size	int	批次大小	64
+--num_workers	int	数据加载线程数	0
+--device	cuda/cpu	运行设备	cuda (若可用)
+--output	路径	可选的 CSV 结果保存路径	None
