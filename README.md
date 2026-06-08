@@ -1,69 +1,69 @@
 # Sota-weight-and-val-code
 Sota-weight and val code of "Boosting Representation Learning for High-Level Semantic Information in Facial Expression Recognition"
 
-## 📦 权重文件
+## 📦 Weight Files
 
-预训练权重通过 [GitHub Releases](../../releases) 提供，请从 **Latest Release** 下载所需文件。
+Pretrained weights are available via [GitHub Releases](../../releases) ，Please download the required files from the **Latest Release**.
 
-| 文件名 | 任务 | 训练数据集 |
+| Filename | Task | Training Dataset |
 |--------|------|------------|
-| `sota_ferplus.pth` | 7 分类 | FERPlus |
-| `sota_raf-db.pth` | 7 分类 | RAF‑DB |
-| `sota_affect7.pth` | 7 分类 | AffectNet (7 类) |
-| `sota_affect8.pth` | 8 分类 | AffectNet (8 类) |
+| `sota_ferplus.pth` | 7-class classification | FERPlus |
+| `sota_raf-db.pth` | 7-class classification | RAF‑DB |
+| `sota_affect7.pth` | 7-class classification | AffectNet (7 classes) |
+| `sota_affect8.pth` | 8-class classification | AffectNet (8 classes) |
 
 ---
 
-## 🧠 情绪类别
+## 🧠 Emotion Classes
 
-### 7 分类
+### 7-class Classification
 `0: Neutral` `1: Happy` `2: Sad` `3: Surprised`  
 `4: Scared` `5: Disgusted` `6: Angry`
 
-### 8 分类（在 7 类基础上增加）
+### 8-class Classification (extends 7-class)
 `7: Contemptuous`
 
 ---
 
-## ⚙️ 环境要求
+## ⚙️ Environment Requirements
 
 - Python 3.8+
-- PyTorch ≥ 1.10（推荐 CUDA 11.7+）
-- OpenAI CLIP（官方库）
+- PyTorch ≥ 1.10（CUDA 11.7+ recommended）
+- OpenAI CLIP（official library）
 - torchvision, tqdm, numpy
 
 ---
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 1. 下载权重
-从 [Releases](../../releases) 页面下载所需的 `.pth` 文件，放入项目根目录。
+### 1. Download Weights
+Download the required `.pth` files from the [Releases](../../releases) and place them in the project root directory.
 
-### 2. 准备测试数据
-测试集根目录下需包含按类别编号命名的子文件夹，例如：D:/val/
+### 2. Prepare Test Data
+The test set root directory must contain subfolders named by class numbers. For example: D:/val/
 ├── 0/
 ├── 1/
 ├── ...
-└── 6/ (7 分类) 或 7/ (8 分类)
-### 3. 运行评估
+└── 6/ (for 7-class) or 7/ (for 8-class)
+### 3. Run Evaluation
 
-#### 测试七分类权重
+#### Test 7-class weights
 python evaluate.py --weights sota_affect7.pth --test_root D:/val --num_classes 7
-#### 测试八分类权重
+#### Test 8-class weights
 python evaluate.py --weights sota_affect8.pth --test_root D:/val --num_classes 8
-#### 导出结果到 CSV 
+#### Export results to CSV 
 python evaluate.py --weights sota_affect7.pth sota_affect8.pth \
     --test_root D:/val --num_classes 7 --output results.csv
-#### 命令行参数
-| 参数 | 类型 | 说明 | 默认值 |
+#### Export results to CSV
+| Argument | Type | Description | Default |
 |------|------|------|--------|
-| `--weights` | 多路径 | **必须**，一个或多个权重文件路径 | - |
-| `--test_root` | 路径 | **必须**，测试集根目录 | - |
-| `--num_classes` | 7 或 8 | 分类数 | `8` |
-| `--batch_size` | int | 批次大小 | `64` |
-| `--num_workers` | int | 数据加载线程数 | `0` |
-| `--device` | cuda/cpu | 运行设备 | `cuda` (若可用) |
-| `--output` | 路径 | 可选的 CSV 结果保存路径 | `None` |
+| `--weights` | multiple paths | **Required**, one or more weight file paths | - |
+| `--test_root` | path | **Required**, test set root directory | - |
+| `--num_classes` | 7 or 8 | Number of classes | `8` |
+| `--batch_size` | int | Batch size | `64` |
+| `--num_workers` | int | Number of data loading workers | `0` |
+| `--device` | cuda/cpu | Execution device | `cuda`(if available)|
+| `--output` | path | Optional CSV result save path | `None` |
 
 ```
 Testing weight: sota_affect7.pth
@@ -83,8 +83,8 @@ Per-Class Accuracy:
   [6] Angry       : 62.63% (501/800)
 ==================================================
 ```
-## 📁 项目结构
+## 📁 Project Structure
 .
-├── evaluate.py                # 主评估脚本
+├── evaluate.py                # Main evaluation script
 ├── README.md
-└── (权重文件需从 Release 下载)
+└── (Weight files to be downloaded from Releases)
