@@ -40,4 +40,8 @@ Sota-weight and val code of "Boosting Representation Learning for High-Level Sem
 从 [Releases](../../releases) 页面下载所需的 `.pth` 文件，放入项目根目录。
 
 ### 2. 准备测试数据
-测试集根目录下需包含按类别编号命名的子文件夹，例如：
+测试集根目录下需包含按类别编号命名的子文件夹，例如：D:/val/
+├── 0/
+├── 1/
+├── ...
+└── 6/ (7 分类) 或 7/ (8 分类)
