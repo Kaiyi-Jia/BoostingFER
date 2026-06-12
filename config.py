@@ -1,11 +1,11 @@
 import os
 
 class Config:
-    # -------------------- 数据路径 --------------------
+    # -------------------- Data Directory --------------------
     data_root = "D:/FER_Data"
-    dataset = "RAF-DB"
+    dataset = "rafdb"
 
-    # -------------------- 模型参数 --------------------
+    # -------------------- Model Parameters --------------------
     clip_model_name = "ViT-L/14"
     clip_weights_path = None
     retention_ratio = 0.5
@@ -18,7 +18,7 @@ class Config:
     lambda1 = 1.0
     lambda2 = 1.0
 
-    # -------------------- 训练参数 --------------------
+    # -------------------- Training Parameters --------------------
     batch_size = 8
     epochs = 100
     lr = 1e-6
