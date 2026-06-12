@@ -49,9 +49,8 @@ Supported formats include the official _label.txt format or standard folder-per-
 ```text
 data_root/
 ├── RAF-DB/
-│   ├── train_label.txt
-│   ├── test_label.txt
-│   └── Image/aligned/
+│   ├── train/ (0/ 1/ 2/ ...)
+│   └── val/   (0/ 1/ 2/ ...)
 ├── FERPlus/
 │   ├── train/ (0/ 1/ 2/ ...)
 │   └── val/   (0/ 1/ 2/ ...)
@@ -59,3 +58,15 @@ data_root/
     ├── train/ (0/ 1/ 2/ ...)
     └── val/   (0/ 1/ 2/ ...)
 ```
+## 🚀 Training
+To train the BoostingFER model from scratch, adjust the hyperparameters in config.py (such as batch_size, accumulation_steps depending on your VRAM) and run:
+```text
+python train.py
+```
+Training Highlights:
+
+*Semantic anchors are automatically pre-computed and cached before training starts.
+
+*Model checkpoints (Lean versions) are saved in the configured save_dir.
+
+*TensorBoard logs are recorded in the log_dir.
