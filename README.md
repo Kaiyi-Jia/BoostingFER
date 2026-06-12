@@ -23,7 +23,7 @@ BoostingFER is an efficient and robust Facial Expression Recognition (FER) frame
 ├── train.py           # Main training script with TensorBoard logging and early stopping target
 ├── evaluate.py        # Evaluation script for computing final accuracy
 └── README.md          # This file
-
+```
 ## ⚙️ Environment Setup
 Requirements:
 
