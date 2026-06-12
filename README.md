@@ -70,3 +70,22 @@ Training Highlights:
 - **Model checkpoints (Lean versions) are saved in the configured save_dir.**
 
 - **TensorBoard logs are recorded in the log_dir.**
+## 🧪 Evaluation
+To evaluate a trained model, open test.py, set the WEIGHT_PATH to your saved .pth file, and run:
+```text
+python evaluate.py
+```
+Note: During inference, the EHSA alignment constraints and the CLIP text encoder are completely discarded, ensuring ultra-fast execution.
+## 📝 Citation
+
+Our paper is currently under review. If you find this repository or our code useful for your research, please consider giving this repository a star ⭐! 
+
+The formal citation details will be updated upon acceptance. For now, you can cite our project as follows:
+
+```bibtex
+@misc{BoostingFER2026,
+  title={Boosting Representation Learning for High-Level Semantic Information in Facial Expression Recognition},
+  author={Min},
+  note={Under Review},
+  year={2026}
+}
